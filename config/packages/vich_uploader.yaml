@@ -1,0 +1,28 @@
+vich_uploader:
+  db_driver: orm
+
+  mappings:
+    partner_image:
+      uri_prefix: /assests/images/partner
+      upload_destination: "%kernel.project_dir%/public/assets/images/partner"
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+    event_image:
+      uri_prefix: /assests/images/event
+      upload_destination: "%kernel.project_dir%/public/assets/images/event"
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+    dish_image:
+      uri_prefix: /assests/images/dish
+      upload_destination: "%kernel.project_dir%/public/assets/images/dish"
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+    truck_image:
+      uri_prefix: /assests/images/truck
+      upload_destination: "%kernel.project_dir%/public/assets/images/truck"
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+    chef_image:
+      uri_prefix: /assests/images/chef
+      upload_destination: "%kernel.project_dir%/public/assets/images/chef"
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

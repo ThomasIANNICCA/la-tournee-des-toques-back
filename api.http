@@ -1,0 +1,296 @@
+######################################! Endpoints Front Office ########################################
+
+### Data for the homepage (partners and events
+GET http://localhost:8000/api/v1/home
+
+### Data for the Trucks page
+GET http://localhost:8000/api/v1/trucks
+
+### Data for a specific Truck page using its ID
+GET http://localhost:8000/api/v1/trucks/212
+
+### Data for the events page
+GET http://localhost:8000/api/v1/events
+
+### Data for the events page
+GET http://localhost:8000/api/v1/events/145
+
+### Data => tags and categories
+GET http://localhost:8000/api/v1/tags-categories
+
+#####################################! Endpoints Trucker profile ########################################
+
+### Data for the user profile
+GET http://localhost:8000/api/v1/user/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTc0MDI4NjgsImV4cCI6MTcxODI2Njg2OCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlcjFAb2Nsb2NrLmZyIn0.SHqUuFdUbwGMCpFobhDo5rFMWIvBJe1rEH0oYq_h6C7-Uy6SsDY2jmzusVyEIan-FgF4i1HJGA0CMW_SI9c6QA5tWMZzK-sAoO9Hqaz9h__I73CrCNWwfBd-2RdLYr5_jmyTpt435X5nkAVjFTgO6wVqR0508upPFWoVHPbt6-CAww5JF4M_5MpkIJ6il7dyGV9l81R12E59YpD8yBv6wW3gcU5Au6b0SmPrDff_De5EWG8Q2X0Fj_WOz7u_GHvfxDtj9I932neEG48ZdReLrDc6n4N6wG8e9G2Vh_lr39BtOqxUpk-b1Z5Cm2LrH9EOe3EOTqoQgcmknjtp1J7KDA
+### Data for the truck of the user in his profile
+GET http://localhost:8000/api/v1/user/45/truck/213
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTU4NDUwNjgsImV4cCI6MTcxNTkzMTQ2OCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlcjFAb2Nsb2NrLmZyIn0.sKsxuvXved9Nhn2Ex_qMbWWYVLZPnHnDF_p_MLTHpFT5FWVjnQpMKn4yA-aFJyHCSHnj_i472c0MoWfZC3OjuKTzEdmvLZHEV2PhOz66mx3AIm_YHc1BERchbcP6xLDsp4h3M-KC01_DxNEGOolykjoyi0tvDLNLZwgV293xt4oxllLYFyQDzndhjU8NPjbWcijhNXD5K5NzETHEL7ZPZACGwSDvofMhPs8e_YaJfFwv0G42x2Ji_sa1J6Q3L7bK-i-2WN8NYJWg5pDpASe9kBDsHmI6wK9Df66FO1LN0BryL7rgARlvfB8_B9pNlVc4OfRgANhBw1i2h72_nFU8lw
+### Add a truck
+POST http://localhost:8000/api/v1/user/2/add
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY3OTcwMzAsImV4cCI6MTcxNzY2MTAzMCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlcjFAb2Nsb2NrLmZyIn0.pOrCyzgAdOmo05OvNvjUwNJ9P9tzzazlEAHHSpbbRbdmQy-8aHPMS3pf8WZCyMLOKfRSjQ-Iq_vCLQDFmiZwMMP51mC3Rm3Gm4hsKgSo6AwmPDmix6E6cm7xAZoZMVOUpuobhiAz8HwMUHbBeARPwdh_7-EQmiYH2fSxJHaR1AGljFKWEVZRCZy4KuZuNl9tOu_25zYx6s6TtRjTm3D1yZzhiwAA_tgDSSsC9BNz6QTXT6rHigMuqxMs6-YaoUCyMDU66M0WtBYjv0wxl0lk8bTozqveoUyE7fBVhJ_tlJtLiedpgjkA7VP6rehqv2MZvfXJr2W5DdljSFkAc3KrCQ
+Content-Type: application/json
+
+{
+    "user":2,
+    "name":"Mon superbe Truck",
+    "presentation":"Que dire de ce superbe truck à part que c'est un simple test pour le rentrer en bdd via une requete post.",
+    "location":1,
+    "status":"pending",
+    "chef_name":"jean",
+    "chef_description":"cuisine",
+    "category":[8]
+    
+}
+
+### Add a dish
+POST http://localhost:8000/api/v1/user/2/truck/1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTU4NDUxMDksImV4cCI6MTcxNTkzMTUwOSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlcjJAb2Nsb2NrLmZyIn0.u4t4KzSnrlP_mN4pCEf7bLIdUuWC0whXIB46RM8EGA8Q7pJjzyywVaaasdZrBYbaRwBaNzjg5NYdTTurAY2tQVi6v5Yt3z9cn3bq2QkYIlO8G_iz73cEV8vBRe4wTHuK76or3rsOaOngtOKd3bWejAHDVHjSNO3hvnZ94LQDh3qE8CBbVUWnc-ezjKx1Vt0xCWdR7QGsG6DanWeu3QbHkZPbKYekxvDYeu6Rcw3d5Rleil7TkApW1AIetLmebYQNfK6ouclmfi_7OdjU8SBtDTwpVdUbpxvTDWpuhVfHek7XLPtULuP6cuFgP3FbFS7pL3qbvqRTjIAoD4s-ZjoOIg
+Content-Type: application/json
+
+{
+    "truck":1,
+    "name":"Gougère aux épinards",
+    "description":"Plat préféré de Kronk",
+    "price":12.50,
+    "type":"entrée",
+    "tag":[2]
+    
+}
+
+### Delete a Dish item from the menu
+DELETE http://localhost:8000/api/v1/user/45/dish/1094
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTU4NDUwNjgsImV4cCI6MTcxNTkzMTQ2OCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlcjFAb2Nsb2NrLmZyIn0.sKsxuvXved9Nhn2Ex_qMbWWYVLZPnHnDF_p_MLTHpFT5FWVjnQpMKn4yA-aFJyHCSHnj_i472c0MoWfZC3OjuKTzEdmvLZHEV2PhOz66mx3AIm_YHc1BERchbcP6xLDsp4h3M-KC01_DxNEGOolykjoyi0tvDLNLZwgV293xt4oxllLYFyQDzndhjU8NPjbWcijhNXD5K5NzETHEL7ZPZACGwSDvofMhPs8e_YaJfFwv0G42x2Ji_sa1J6Q3L7bK-i-2WN8NYJWg5pDpASe9kBDsHmI6wK9Df66FO1LN0BryL7rgARlvfB8_B9pNlVc4OfRgANhBw1i2h72_nFU8lw
+
+
+### Delete an user
+DELETE http://localhost:8000/api/v1/user/46
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTU5NDYyOTAsImV4cCI6MTcxNjAzMjY5MCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlcjJAb2Nsb2NrLmZyIn0.PZy0KV6uj8J1gcnH1zSgp36uKZKKmFcZ7hvPWcq2OnxbBZ9D836bbOuXQyC6JZn8sl9k0QcXODWxxUkcU7W3dwJMCGSNMM7E5MGrq0iebOQQRgYy-a0B5AqQjg265ZXhS5hKdkixvEDwhcv2fee72tDP4xot5-V40eczy4aPm5zBUm-x5YIYuzJqkQQeLPg4ZMbQkgVqy_-pdqubs11WFrprVa33sDwVw4KaSMR1K3pAED5c8S0r-dwjsozgcSLyhzY_qw-EwUF-IXyM6NXvO3AGQXxK7vCdvLK3CS7MJbOq6p82kf7EyVwfY2ICIeO76WzwkJnOur9s0ALhytsIZw
+
+
+### Edit an user
+PUT http://localhost:8000/api/v1/user/54
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTYyNzkxMzgsImV4cCI6MTcxNjM2NTUzOCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlcjFAb2Nsb2NrLmZyIn0.7p_9OzQUkS0mhWXv2BluoShRrFB30i-AwjN1L3SyuCh4Ut0ZgrJjkaJ1hRm7cnsQWwkwkGFVQMYUIFYjLlxTd2lwo8bndNJNLi2LpCtJY2EXmop6Ly2W4nMRTIg1xtA4Mf_XV5zaAOxGEcdXpwBxkBlUCnv2_mIBa7RFnKAPaMykiw9KgNBmF-IpK_jioig0-v5OZU8OyeAXDP0RiulhATg9NtxpB5jos5c27qmhYTwTSt65Bjc8x6DSpncTh0-XzeExyk3VftGNPSUp2pBfP2Lfc9_MGse__z53O3mr17T3uA44iOT4s1dNxPOCbwWL-NBIaTxii9FAssVWE-Ak2g
+Content-Type: application/json
+
+{
+    "email":"user1@oclock.fr",
+    "password":"test",
+    "firstname":"Michel",
+    "lastname":"Matheu"
+
+}
+######################################! Endpoints Back Office ###########################################
+
+##########! PARTNER
+
+### Browse Partners
+GET http://localhost:8000/api/v1/back/partners
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+### Read Partner
+GET http://localhost:8000/api/v1/back/partners/321
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+### Edit partner
+PUT http://localhost:8000/api/v1/back/partners/321
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+Content-Type: application/json
+
+{
+    "name":"Mc Donalds"
+
+}
+### Add partner
+POST http://localhost:8000/api/v1/back/partners
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+Content-Type: application/json
+
+{
+    "name":"Goodyear"
+
+}
+
+### Delete partner
+DELETE http://localhost:8000/api/v1/back/partners/331
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+Authorization: Bearer
+
+##########! EVENT
+
+### Browse events
+GET http://localhost:8000/api/v1/back/events
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+
+### Read event
+GET http://localhost:8000/api/v1/back/events/196
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+
+### Edit event
+PUT http://localhost:8000/api/v1/back/events/196
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+Content-Type: application/json
+
+{
+    "title":"The TEST",
+    "content":"test du crud/bread",
+    "openedAt":"2024-12-11 00:00:00",
+    "closedAt":"2024-12-11 00:00:00",
+    "location":"Au niveau de la scène"
+    
+
+}
+### Add event
+POST http://localhost:8000/api/v1/back/events
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+Content-Type: application/json
+
+{
+     "title":"The add TEST",
+    "content":"test du crud/bread",
+    "openedAt":"2024-12-11 00:00:00",
+    "closedAt":"2024-12-11 00:00:00",
+    "location":"Au niveau de la scène"
+
+}
+
+### Delete event
+DELETE http://localhost:8000/api/v1/back/events/201
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+
+##########! TAG
+### Browse tags
+GET http://localhost:8000/api/v1/back/tags
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+### Read tag
+GET http://localhost:8000/api/v1/back/tags/299
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+### Edit tag
+PUT http://localhost:8000/api/v1/back/tags/381
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+Content-Type: application/json
+
+{
+    "name":"Sans gluten"
+
+}
+### Add tag
+POST http://localhost:8000/api/v1/back/tags
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+Content-Type: application/json
+
+{
+    "name":"Avec gluten"
+
+}
+
+### Delete tag
+DELETE http://localhost:8000/api/v1/back/tags/381
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+
+###########! CATEGORY
+### Browse categories
+GET http://localhost:8000/api/v1/back/categories
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+### Read category
+GET http://localhost:8000/api/v1/back/categories/257
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+### Edit category
+PUT http://localhost:8000/api/v1/back/categories/257
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+Content-Type: application/json
+
+{
+    "name":"Tex-Mex"
+
+}
+### Add category
+POST http://localhost:8000/api/v1/back/categories
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+Content-Type: application/json
+
+{
+    "name":"Avec gluten"
+
+}
+
+### Delete category
+DELETE http://localhost:8000/api/v1/back/categories/260
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+
+###########! USERlogo
+logo
+
+### Read user
+GET http://localhost:8000/api/v1/back/users/46
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+
+### Add user
+POST http://localhost:8000/api/v1/back/users
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTcwNzMwMTMsImV4cCI6MTcxNzkzNzAxMywicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.4nZIkfliiXn05ml0AbSbtoU1wov_F8rxPCyM9ttbhL2bEe48b3EdZ4qRxYmeoFyrV6UTZdDfrzut7uYCGPNHjVcOE8l1dIYSAM8PCA9eTud-KWRr5inVKModlTV5CFqzcSe4sBVJPyRL9kdlp9rqhpTtqJbUJ-X5jmTfxvL3tn1fR4jKu-FL1TjjZkVvREeSz-l66EQ8j37t0e384heu0Zg5mN0fl-fwmKZ7tHXumL6Du4fHEMgdkvS4rOBFgKd8TlHpB0Pwg8oN-FoqHL7VrsPPbJzw_aEGEMFQUtYRsBFRUEoz5R55EN0hjTk_PNvtgx211SbSO2lIZ_lTOVbl0w
+Content-Type: application/json
+
+{
+    "email":"new@oclock.fr",
+    "password":"Hellohello1!",
+    "roles":["ROLE_USER"],
+    "firstname":"Jean",
+    "lastname":"Peplux"
+
+}
+
+### Delete user
+DELETE http://localhost:8000/api/v1/back/users/260
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+
+###########! TRUCK
+### Browse trucks
+GET http://localhost:8000/api/v1/back/trucks
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+
+### Read truck
+GET http://localhost:8000/api/v1/back/trucks/322
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+
+### Edit truck
+PUT http://localhost:8000/api/v1/back/trucks/322
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+Content-Type: application/json
+
+{
+    "location":9,
+    "status":"draft"
+
+}
+
+#####################################################################  TEST CONNEXION #################################################################
+
+POST http://localhost:8000/api/login_check
+Content-Type: application/json
+
+{
+    "username":"user1@oclock.fr",
+    "password":"user"
+}
+
+###Token Admin: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY0Njk3NDIsImV4cCI6MTcxNzMzMzc0Miwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG9jbG9jay5mciJ9.rD21zIWNy733Fam_jLS2o4a5Gggjen78pTvGCSRSL4t248LocpWNrjZ4H-d5RpBCK4QYlLVwbT-Tzq4PNPaUeuk939uGYopZuQ8P9awEulR4baHafmgwTQOQp-OCumHMoxGMpl1E6ajpn0kBFvnCvgReZkq9Kvgs26mv9-7K4B4Ty37eajuJ-jb5IKGVHGQschqlhP4gpMD0Q2KDuDVgX_r2l_kDioXCPMGz-QPOc8SOKkzpaboHN7o7ILTy-Dl12GSewPm3ir081NSqYFnh0CyIQ2iq3L6sMgxAt3qnRuLMypxPeh-H8Z4jh7iCqHnBPXUlubJwBbzlXYDYuMGwdQ
+
+###Token User 1: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY3OTcwMzAsImV4cCI6MTcxNzY2MTAzMCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlcjFAb2Nsb2NrLmZyIn0.pOrCyzgAdOmo05OvNvjUwNJ9P9tzzazlEAHHSpbbRbdmQy-8aHPMS3pf8WZCyMLOKfRSjQ-Iq_vCLQDFmiZwMMP51mC3Rm3Gm4hsKgSo6AwmPDmix6E6cm7xAZoZMVOUpuobhiAz8HwMUHbBeARPwdh_7-EQmiYH2fSxJHaR1AGljFKWEVZRCZy4KuZuNl9tOu_25zYx6s6TtRjTm3D1yZzhiwAA_tgDSSsC9BNz6QTXT6rHigMuqxMs6-YaoUCyMDU66M0WtBYjv0wxl0lk8bTozqveoUyE7fBVhJ_tlJtLiedpgjkA7VP6rehqv2MZvfXJr2W5DdljSFkAc3KrCQ
+
+###Token User 2: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTY1NDI3OTAsImV4cCI6MTcxNzQwNjc5MCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidXNlcjFAb2Nsb2NrLmZyIn0.ZpNrF1_2vlTFsUb5JElih5qtWZzeU96wliSA8AHwvBLx_iL9eXm_ahAVG1UCc6DI4H6S7DgV2ADfTuJmxLgaFB4CCowxiTRYq8ikLpfIB58ctyqSwtxi6CARTYXbluCGTCGs6c3qV2Gd6AK6Nw0yxNWjFX5LIqeq8NHSszoh5xjFOo0gXqb5hdgOBRaX86DEuigMSIvQQhdkUx84IS7mAC-_TJKJ2Z3RjbQ8o5vyfnHLoZuA7SS8b_sItHfl0Y6aqnAs_G7lMaPIMG1JMfmicCY8itcVUGiuIu0-hfQ_F13eOAjgIbxaGD6sz9qVzaMfkw8IfnLaPHZKD550gooG-A
+
+
